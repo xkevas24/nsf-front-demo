@@ -1,0 +1,42 @@
+<template>
+  <q-layout view="lHh Lpr lFf">
+    <q-header v-show="ui_version == 'v1.0'" elevated>
+      <q-toolbar>
+        <q-toolbar-title>
+          轻舟微服务Demo
+        </q-toolbar-title>
+
+        <div>前端版本 v1.8.0</div>
+      </q-toolbar>
+    </q-header>
+
+    <q-header v-show="ui_version == 'v2.0'" elevated>
+      <q-toolbar class="bg-black text-white">
+        
+        <q-toolbar-title>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQQAAAAwCAYAAAD3lAQFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAytSURBVHgB7Z3hlZu6EoDH7+T/9avg6lXw3EFIBdepIKSCJBUsW0G8FaxTQfwqMKkgTgXWrSD7KpirWUQsBgkkJMDe8J3DsYWFACFGM6ORDHAlIOKd2s5qW8PCwsLviRIAmRYENR9hYWHh90K9+EJtX7HNERYWFn4PyCTQ5sFPdCNgYWHhZWMxD1wsZsPCwgy8ggnQPf6j2jLPQ/4LE8O0kqfVavUEN85LvKdQtJN6Vke1qncJI3Bzz9fTPDiqbcf2nWFC1Pk27Pw7uHHUPeS8nuE3RN33HucngxFg53iEBIymIehKoIsUjixSbe+VVCtV3o36/sH4TcC08B6k7Mps3FsU6t7/A+PxjqW/wMhg1Rt/hfG5p3YD/deyVdufMC+y71oJdb05GG1KHbOCGUguELDfPCC15kFtO0PFkbZyJlK1iNcs/YR2x6apltl+HxXdyD97Zs9Y+rU6/jWEcR/4DNbgbxbG8N4jD11Lkl4zkv955ruK+JtkAkE3VurlySHourkSKq1AmjvpJVPH87yjVJB+0ftMEpd6/Ultc5oTVCc5DCOHcEirkHBdlAM7ir3avkEYpGVlRvoewuuj9MxntvfZfAFJBEKIeeAu5TmPMNLXGLF40J8SqsYRgoC2Gr8QzlDT55tqf/uQA1S7vjOSpPoXMB4NgTDA77AecMyJOyKjBMJA88DFtYcsn+qeSX8WEICqqz3btYd4JKTtwekZbGAgul5msX1To18uYezyVf2HYo6sCXBrqS62eguBfFjpBILiOwSaBx3wckZRm+h61MN+a5wvg2bP7bJPTzAQLTi5dhCqYdi4D+31uuCOrZcMVrEuf3VkofYhjTT5YEJfUvI5vfXMO1gQD+RkezdjBQI1au7kktBvHjRA+4Sm0ewodW0H49yZ8dMp5Qumy6d74w0p1FkXek7qKerG/vfIqu6tQi9gBuMifTLpDmNqDdlqekUJBNXQKH6AGl7G9pcQxsZStoRpMD3voU4nH8gOFUZaTvCCkjDN64R6Rj4m28J8ZCztM4pCmNoctd09+FPadqZwKpKWkBlpmrS0UQ0wRMXmAmGweh6Cjn8Qxq6DVpvrfSdTmxhQPgmDj2z3GxgZHdsh4XIfdA0FLLggYZmqzQkIH5I2bf/SV0tlwUjn1NrtYLAdifgx8PjDGFFXHuc1IyTPet8xxXVgFaGJMfViKVOw8vKOvAW/N4/yc1Z+BjdKX11hM4IxWRRnaL1jwDO1HIsp2qrJvyAN3APrPRcBKxubO3fGUN1tmOctIQFYhWvTwynYT+Q32MF0lMZ3ccsv9wvH1A7k3L18qsAkydL/Bn9sQyUljAy2zYUHiESX+RXaKmNKldQLbTaUcDHnqJ5LWLBBQlxABEN8XngJ5quJboOxjDWX4Y+AvHcsXU7kUDTVdxno82igH6zNX1DzHOOPVSzC/Wo6hylpWpn+/o7U2dTOxRAVd0S85gt0QII8ZkKdhGpMPxQSBqIuY2IN0spYAuH/Ppmw6cCrGX0SjsYcXRgUE4Dd4dql2v6GZvxBTpsWDF8iG7EPe7gI3DrsOVmjw0tg2txQSHkJ81FCILruCmNXiriUaFIJBD5KIMEPrh1MYkMxQRR8TrwEtWSWn6kH/lSXqfLSKMVnaAq+HCrBIKHyvyTvuQkdhEUvSy2sJLxMBo8EJSKoE9PCwHRkPlzLCEEqgcBn0ZV9B2A1JCfY7qmkpNlrC+YNNnv6LXPGvdWmhW3GIe2nhrE3X249bFkPZ/LJMgIqDYPylLxAbC/uIVgWH9v3wMrsys9NPYHXvwiHTGCC0bP7BMN4CjE3dX3SMxF61w91fNToU0qiBYJu6FxdPvUcQxpFwXbP6WEVjv3mC2nzM0ioevhDn/qv722vGwQ5+FwahsnXnjyfwX869BC4OVBCM46ChEOfECchKIz0HipTKhUpnLVPCc23dc/vAi6jcD9gmuni3sRObqqdaSadTkH9QtgW0XhjyVeXTT6J2lOf8uGFYA6t0rWehvSWum52eqtDpyXcBg3VWN9/4crMniFBdeYbhXdz6Pv9yzM71eXHa9O4XmG1XNhuoNplU/ud9pRhO/FjbJ73AhzThbFaO4GEA3nRDwMExAO4Yx3MHo3OUQuCfZ0hpUCaSbgNpYQwCpaefVjNwSZBcJJtpqjtZa99TA3nru5cH2H4nIYs8B6+2DTylWE/vw20hUgYFGy3dC0L1jFGTzbUhuWlPCHDQG9SvVi6UjOd3Lt6tAHX2MWDzY7E9hRcaiymibCHtEFcGTSFsLkgyFNoGLduW0InnW1jDCzP5735AuiRnrHXp7j3nbeSuD35YH9nsBk2/LnPSaVDLY9oRziO+YD2hVbP/Bgd6XfGMIZKVdu1Ho1yH6G7HlKx9by2wWGunuXnrPwMBmIpa1LHGYaFLo9BkG8D07anPpyCh3wI0kjTQyPPegmVqky/kYpTq0PcS27yiav9WDWoO8cxlPeNxVTIwL7wh00ley7nCj3fQQT0vIKlrfet6z2r88wU8MJ9S0HaxQTQC/tnQP7M+C7B7fehZ/JtYJ1LCEOw8/q+B87FXkgg0IPiKx7nELYGXyNOv0cQEORd3dr8FvUwneO42vSo57KTA6eEeejzsAtoqqQPYH9gEuKuwcWvF1LV2X5KoYltU2e/mi460wvdXr1fWupWjeSXVeIp7Lp+gkwqdk2HFA7bVzrmvdYChkArwkisVDKKR9j2lBXlXdV+Dtr2lMaR/y0aL4tXbPQnVbz08LBn0BQIuwQvhde9Wp4paX4FTEfO0tfqTFxg1MOOFJRhGzHwwXcd/uceNbX6Gtvz6ReebzU5tBv3nKovFwiyIy8J3lrzew0Tge3l4spVxDyRMdGdyS8zNMYxnbKsOXkWCOR91X6DAtJ7XumF7V1o1TAFzGAgQurttEqg9urz1MM7AsKYauKVC2Emeq7FNAUz0lgmaqQFSweF9SbG1JKE5XfSnGrTqoR48/PXsJ+q7ze3KhQaYOXtJAFxxjhoVKFwqfRYjSZ8xMqr/9OzzLPaHjFiqipWfzg79H7yiPMIiASbnvGfHvnPRv5ezQwTjDKwc045jNZ3LY89v+c9ZZkUjjzHkPqOhV3T+JPM1Em2uhF+Rz8o366rIWH1ohwxjhwGgt0C4czSZItT0IqAQHAcgXA0yusNQsHm6j0k0NY9+aMEguX4HCLBdlvJAo414YFAQc+H5S0cebKQ+o6FXdP4/+3IPf5YqdtrYDH+4DHBBPtHHnyJnfNAaiTdE8XTS72Rjfs8cQebgUnnK7N/hfHdZ4p5Cc3pz1tI838QLlph7BAPX7NzC36T5zK2iz/H3PiexBRkzlzapnbmRhM0l2HIyzFAEEiW5j6FqEVK9T34rpV/NejeRhi7yr5jdAOlF6oebx+tx8KRhhotKz+9Q7+FXrYsXdZfsO34TOnnIH9ZLRjJh1PADdESCFodOiRYQSgHvxl9JVSBEvRpDTLS5WVqW1/bePaEbFja6/mspvtPhpyl+2ZBhkDtI9PffXtec5IR/1OSjOU9QDrINPmlleF0ztxxwMtKxGesHHhkF2667CGsHJFbfewR++l0OM4Jplt1OakPASsHrEnyusOBPgRsh93GThTi5a+x6Xj+2ZO/05eBPc5GR5kmRU/e41h1wc6DoffRR0tDoEk2qnCar50BG4fHyj7iPbgAf7yGIK8dvPhSuuA9uo9zsssXkxnfT6v0ayPS/fhO3eUULJ10qFH7dkxVnAREbvMl6To2J4CVbFJTBh3/2YjtRWmIDxCG6fegjsGqJWDalbDXCcp7cvkQyMYmycYbta2yvE4EfrEItZ0s9Hkob9QCqCPxHcLxCeCi0NO94zdzafvo+tC93B1Eop8ZD3x6xPGHwcgHsLfsN6cQS2j/C9IamlPZubmwhfh1In9F0hrnbIDtZdRi2UL4n71y3KHPWk3zHW50ccRK1V33nKcrHmEHE4IeJgOOh3Ccb8Py5RB/n1nPtXjFEGBbPZ+SzHI9R/0btaUNBIJt88RGDpHgtLMbfRE+F74LKJAq8ojVCy6gv+LvsLvyC5gYnE8gfO+4Ju4/EJD+Xjm5ZxlnnI+j455OGBe8dgw558BzXJtAeL6v3mFH7VMo4BJWLOCiAj0Z28lnBAC7ly6vkRD4D9IJ+eH4bhI19OlAdvxGKmitzj0lHGkhW9dm7x98fBT6WZrH23xMqRE9v98naDdU15llv0zYJqmeyDS/Fsf6tGY5+mkExA6vcPRhYWEhEqxs39o/0Kuy4PL/gwsLs7KCRGBlc5JZ8Yf+FNCvDkmoVM6bHoZcWHgppPwrNwkXQeD6/dnXAJVtfviNow4XFq6SfwBt+l1rQn+M0QAAAABJRU5ErkJggg==" style="height: 30px; margin-top: 5px;">
+        </q-toolbar-title>
+
+        <div>BETA Version</div>
+      </q-toolbar>
+    </q-header>
+
+
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
+</template>
+
+<script>
+import { defineComponent, ref } from 'vue'
+
+export default defineComponent({
+  name: 'MainLayout',
+  setup () {
+    return {
+      ui_version: "v1.0"
+    }
+  }
+})
+</script>

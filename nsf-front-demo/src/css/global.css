@@ -1,0 +1,44 @@
+.qzbg {
+    background-image: url(../qz.png);
+    background-size: cover;
+}
+
+
+.wave {
+    background: linear-gradient(137.42deg, #b1eaf5 0%, #5d7be9 40%, #ffffff 100%);
+    background-size: 300% 300%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+.blue-light {
+    animation: breath 5s ease infinite;
+}
+
+@keyframes breath {
+    0% {
+      color: #79b6f4;
+      transform: scale(1);
+    }
+    50% {
+      color: #1976D2;
+      transform: scale(1.5);
+      box-shadow: 0 0 40px 10px rgba(0, 102, 255, 0.5);
+    }
+    100% {
+      color: #79b6f4;;
+      transform: scale(1);
+    }
+  }
+
