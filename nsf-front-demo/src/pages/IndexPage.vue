@@ -58,7 +58,7 @@
         <q-card-section>
           <div class="row items-center no-wrap">
             <div class="col">
-              <div class="text-h6"><a href="https://modao.cc/flow/gWZFGCLds1mrd5f2Uyj9Uk" target="_blank">服务调用链示意图</a></div>
+              <div class="text-h6">服务调用链示意图</div>
             </div>
 
             <div class="col-auto">
@@ -157,7 +157,7 @@ export default defineComponent({
   setup: () => {
     const $q = useQuasar()
     let iu = ref('poc-api:8089/api?entry=product-info:8080');
-    let du = ref('poc-api:8089/api?entry=product-detail:8081');
+    let du = ref('poc-api:8089/api?entry=product-detail:8080');
     const searchParams = new URLSearchParams(window.location.search)
     const iu_user = searchParams.get('product_info')
     const du_user = searchParams.get('product_detail')
@@ -227,7 +227,7 @@ export default defineComponent({
     
     const product_info_ping = (notice=true) => {
       console.log('Ping product_info...');
-      product_info_uri.get('/get_version')
+      product_info_uri.get('/info/get_version')
       .then(res => {
         if (res.status == 200) {
           product_info_version.value = res.data.data.version
@@ -261,7 +261,7 @@ export default defineComponent({
 
     const product_detail_ping = (notice=true) => {
       console.log('Ping product_detail...');
-      product_detail_uri.get('/get_version')
+      product_detail_uri.get('/detail/get_version')
       .then(res => {
         if (res.status == 200) {
           product_detail_version.value = res.data.data.version
@@ -307,7 +307,7 @@ export default defineComponent({
 
     let products = ref([])
     const get_product = () => {
-      product_info_uri.get("/get_product")
+      product_info_uri.get("/info/get_product")
       .then( res => {
         products.value = res.data.data
         console.log(products.value)
@@ -323,12 +323,12 @@ export default defineComponent({
 
     let details = ref([{"detail": "加载中"}, {"detail": "加载中"}, {"detail": "加载中"}, {"detail": "加载中"}])
     const get_detail = () => {
-      product_detail_uri.get("/get_product_detail")
+      product_detail_uri.get("/detail/get_product_detail")
       .then( res => {
         if (res.data == "local_rate_limited") {
           $q.notify({
             icon: "cancel",
-            message: `product-detail:接口 /get_product_detail 请求失败: ${err}`, 
+            message: `product-detail:接口 /detail/get_product_detail 请求失败: ${err}`, 
             color:"red", 
             position:"top-right"
           })
@@ -342,7 +342,7 @@ export default defineComponent({
       .catch( err => {
         $q.notify({
             icon: "cancel",
-            message: `product-detail:接口 /get_product_detail 请求失败: ${err}`, 
+            message: `product-detail:接口 /detail/get_product_detail 请求失败: ${err}`, 
             color:"red", 
             position:"top-right"
           })
@@ -358,7 +358,7 @@ export default defineComponent({
     let gate_status = ref(false)
     let gate_open_interval = null;
     const gate_open_func = () => {
-      product_info_uri.get('/get_version')
+      product_info_uri.get('/info/get_version')
       .then(res => {
         if (res.status == 200) {
           product_info_version.value = res.data.data.version
