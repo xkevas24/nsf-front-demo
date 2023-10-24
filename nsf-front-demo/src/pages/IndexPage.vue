@@ -230,6 +230,15 @@ export default defineComponent({
       product_info_uri.get('/info/get_version')
       .then(res => {
         if (res.status == 200) {
+          if (res.data.status == "429") {
+            $q.notify({
+              icon: "cancel",
+              message: `/info/get_version 接口被限流`, 
+              color:"red", 
+              position:"top-right"
+            })
+          }
+
           product_info_version.value = res.data.data.version
           product_info_notes.value = res.data.data.notes
           product_info_status.value = true
@@ -309,6 +318,14 @@ export default defineComponent({
     const get_product = () => {
       product_info_uri.get("/info/get_product")
       .then( res => {
+        if (res.data.status == "429") {
+            $q.notify({
+              icon: "cancel",
+              message: `/info/get_product 接口被限流`, 
+              color:"red", 
+              position:"top-right"
+            })
+          }
         products.value = res.data.data
         console.log(products.value)
         setTimeout(() => {
@@ -332,6 +349,14 @@ export default defineComponent({
             color:"red", 
             position:"top-right"
           })
+          if (res.data.status == "429") {
+            $q.notify({
+              icon: "cancel",
+              message: `/detail/get_product_detail 接口被限流`, 
+              color:"red", 
+              position:"top-right"
+            })
+          }
           details.value = [{"detail": "网络开了个小差"}, {"detail": "网络开了个小差"}, {"detail": "网络开了个小差"}, {"detail": "网络开了个小差"}]
         } else {
           details.value = res.data.data
@@ -361,6 +386,14 @@ export default defineComponent({
       product_info_uri.get('/info/get_version')
       .then(res => {
         if (res.status == 200) {
+          if (res.data.status == "429") {
+            $q.notify({
+              icon: "cancel",
+              message: `/info/get_version 接口被限流`, 
+              color:"red", 
+              position:"top-right"
+            })
+          }
           product_info_version.value = res.data.data.version
           if (res.data.data.version == "V1.0.0") {
             pi_request_v1++
