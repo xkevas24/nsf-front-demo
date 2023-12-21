@@ -6,7 +6,7 @@
           轻舟微服务Demo
         </q-toolbar-title>
 
-        <div>前端版本 v1.9.0</div>
+        <div>前端版本 v1.9.1</div>
       </q-toolbar>
     </q-header>
 

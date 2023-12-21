@@ -156,8 +156,8 @@ export default defineComponent({
   name: 'IndexPage',
   setup: () => {
     const $q = useQuasar()
-    let iu = ref('poc-api:8089/api?entry=product-info:8080');
-    let du = ref('poc-api:8089/api?entry=product-detail:8080');
+    let iu = ref('poc-api:8080/api?entry=product-info:8080'); //8089
+    let du = ref('poc-api:8080/api?entry=product-detail:8080'); //8089
     const searchParams = new URLSearchParams(window.location.search)
     const iu_user = searchParams.get('product_info')
     const du_user = searchParams.get('product_detail')
